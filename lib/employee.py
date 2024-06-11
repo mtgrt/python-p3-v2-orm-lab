@@ -186,5 +186,8 @@ class Employee:
         return cls.instance_from_db(row) if row else None
 
     def reviews(self):
-        """Return list of reviews associated with current employee"""
-        pass
+        
+        db_rows = [] 
+        if not db_rows:
+            return []
+        return [Review.instance_from_db(row) for row in db_rows]
